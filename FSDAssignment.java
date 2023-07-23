@@ -21,7 +21,6 @@ public class CumulativeMultipleArray {
         int cumulativeMultiple = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] == 0) {
-                // If any element is zero, all subsequent elements will be zero as well
                 cumulativeMultiple = 0;
                 break;
             }
@@ -80,8 +79,6 @@ public class SingularSocksCount {
 
     public static int findSingularSocksCount(int[] arr) {
         Map<Integer, Integer> pairsCount = new HashMap<>();
-
-        // Count the number of pairs for each sock ID
         for (int sockId : arr) {
             pairsCount.put(sockId, pairsCount.getOrDefault(sockId, 0) + 1);
         }
@@ -108,7 +105,6 @@ import java.util.regex.*;
 public class Solution {
 
     public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner sc=new Scanner(System.in);
     int n=sc.nextInt();
     int[] array1= new int[n];
@@ -304,8 +300,6 @@ class Solution {
   public String longestPalindrome(String s) {
     if (s.isEmpty())
       return "";
-
-    // [start, end] indices of the longest palindrome in s
     int[] indices = {0, 0};
 
     for (int i = 0; i < s.length(); ++i) {
@@ -321,8 +315,6 @@ class Solution {
 
     return s.substring(indices[0], indices[1] + 1);
   }
-
-  // Returns [start, end] indices of the longest palindrome extended from s[i..j]
   private int[] extend(final String s, int i, int j) {
     for (; i >= 0 && j < s.length(); --i, ++j)
       if (s.charAt(i) != s.charAt(j))
@@ -518,4 +510,36 @@ class Solution {
     }
 }
 // Question 12: Reverse Nodes in k-Group
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+    ListNode prev = null;
+    ListNode current = head;
+    int count = 0;
+    ListNode next = null;
+    while (current != null && count < k) {
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+        count++;
+    }
+    if (count < k) {
+        current = prev;
+        prev = null;
+        next = null;
+		
+        while (count != 0) {
+            count--;
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+    }
+    if (next != null) {
+        head.next = reverseKGroup(next, k);
+    }
+    return prev;        
+    }
+}
 
