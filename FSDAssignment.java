@@ -374,7 +374,148 @@ class Solution{
 }
 
 // Question 9: Java Dequeue
+ import java.util.*;
+
+public class test {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        final Deque<Integer> deque = new ArrayDeque<Integer>();
+        final Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        final int n = in.nextInt();
+        final int m = in.nextInt();
+
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            final int num = in.nextInt();
+            deque.addLast(num);
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num).intValue() + 1);
+            } else {
+                map.put(num, 1);
+            }
+            if (deque.size() == m + 1) {
+                final int key = deque.removeFirst();
+                final int v = map.get(key);
+                if (v == 1) {
+                    map.remove(key);
+                } else {
+                    map.put(key, v - 1);
+                }
+            }
+
+            final int cnt = map.size();
+            if (cnt > res) { res = cnt; }
+        }
+        System.out.println(res);
+    }
+}
 
 // Question 10: Java Priority Queue
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+class Student implements Comparable<Student> {
+    String name = new String();
+    double cgpa;
+    int id;
+
+    public Student(String name, double cgpa, int id) {
+        this.name = name;
+        this.cgpa = cgpa;
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int compareTo(Student s) {
+        if (cgpa == s.cgpa) {
+            if (name.compareTo(s.name) == 0) {
+                if (id == s.id)
+                    return 0;
+                else if (id > s.id)
+                    return 1;
+                else
+                    return -1;
+            } else
+                return name.compareTo(s.name);
+        } else if (cgpa > s.cgpa)
+            return -1;
+        else
+            return 1;
+    }
+}
+
+class Priorities {
+    public ArrayList<Student> getStudents(List<String> events) {
+        int n = events.size();
+        PriorityQueue<Student> pq = new PriorityQueue<Student>();
+        for (String i : events) {
+            String[] s = i.split("\\s");
+            if (s.length > 1) {
+                pq.add(new Student(s[1], Double.valueOf(s[2]), Integer.valueOf(s[3])));
+            } else {
+                pq.poll();
+            }
+        }
+        while (pq.size() > 1) {
+            System.out.println(pq.poll().name);
+        }
+        return new ArrayList<Student>(pq);
+    }
+}
+
+
+
+public class Solution {
+    private final static Scanner scan = new Scanner(System.in);
+    private final static Priorities priorities = new Priorities();
+    
+    public static void main(String[] args) {
+        int totalEvents = Integer.parseInt(scan.nextLine());    
+        List<String> events = new ArrayList<>();
+        
+        while (totalEvents-- != 0) {
+            String event = scan.nextLine();
+            events.add(event);
+        }
+        
+        List<Student> students = priorities.getStudents(events);
+        
+        if (students.isEmpty()) {
+            System.out.println("EMPTY");
+        } else {
+            for (Student st: students) {
+                System.out.println(st.getName());
+            }
+        }
+    }
+}
 // Question 11: Swap Nodes in Pairs
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        ListNode prevNode = new ListNode(0); 
+        prevNode.next = head; 
+        ListNode newHead = prevNode;
+        
+        while(prevNode.next!=null && prevNode.next.next!=null){
+            ListNode node1 = prevNode.next;                     
+            ListNode node2 = node1.next;
+            ListNode nextNode = node2.next;
+            
+            prevNode.next = node2;
+            node2.next = node1;
+            node1.next = nextNode;
+            prevNode = node1; 
+        }
+        return newHead.next;        
+    }
+}
 // Question 12: Reverse Nodes in k-Group
+
