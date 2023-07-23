@@ -82,8 +82,6 @@ public class SingularSocksCount {
         for (int sockId : arr) {
             pairsCount.put(sockId, pairsCount.getOrDefault(sockId, 0) + 1);
         }
-
-        // Calculate the count of singular socks
         int singularSocksCount = 0;
         for (int count : pairsCount.values()) {
             if (count % 2 != 0) {
@@ -462,9 +460,6 @@ class Priorities {
         return new ArrayList<Student>(pq);
     }
 }
-
-
-
 public class Solution {
     private final static Scanner scan = new Scanner(System.in);
     private final static Priorities priorities = new Priorities();
