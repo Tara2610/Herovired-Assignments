@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Task345</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Task 4: Fixed Navigation Bar */
+        nav {
+            position: sticky;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        /* Task 3: Positioning Elements */
+        .container {
+            position: relative;
+            min-height: calc(100vh - 80px); 
+            border: 1px solid black;
+        }
+
+        .image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            max-width: 500px;
+            margin: 10px;
+        }
+
+        .paragraph1 {
+            height: 30%;
+            width: 30%;
+            overflow: scroll;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .paragraph2 {
+            width: 30%;
+            height: 30%;
+            overflow: scroll;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 10;
+
+        }
+
+        /* Task 5: Image Gallery with Hover Effect and Transition */
+        .image-gallery {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 80px;
+        }
+
+        .thumbnail {
+            width: 350px;
+            height: 450px;
+            /* max-height: 100%;
+            max-width: 100%; */
+            overflow: hidden;
+            transition: transform 0.6s ease-in;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.2);
+        }
+
+        h1 {
+            padding: 50px;
+            padding-bottom: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <h1>‘This Is Extraordinary’: Why the Eras Tour Is Taylor Swift’s Greatest Live Triumph Yet</h1> 
+    <h4>For three straight nights she turned a packed New Jersey stadium into a sea of joy, sobs, and communion</h4>
+
+    <div class="container">
+        <!-- Task 3: Positioning Elements -->
+        <img src="https://www.rollingstone.com/wp-content/uploads/2023/05/taylor-swift-metlife-opening.jpg?w=1581&h=1054&crop=1" alt="Image" class="image">
+        <p class="paragraph1">Swift's personal life changes during the tour, including her breakup with Joe Alwyn and rumored involvement with Matty Healy, added to the intrigue. Fans analyzed her on-stage behavior, interactions with the audience, and song choices, often relating them to her personal experiences. For instance, she swapped out love songs for more emotional tracks after news of her breakup, leading to fans dissecting each decision.
+
+            Social media platforms like TikTok and Instagram played a significant role in fueling the tour's momentum, with fans posting videos capturing snippets of the show, discussing Swift's actions, and debating fan etiquette. The VIP area was often a focal point, with footage of celebrities and peers interacting with Swift going viral. Even celebrities attending her concerts, such as Keith Urban and Nicole Kidman, contributed to the excitement.
+            
+            The tour's ever-evolving nature kept fans hyper-engaged at each stop, with Swift switching out acoustic songs and continuously offering new surprises. As she announced a new deluxe version of her album Midnights, fans eagerly anticipated the release of a new song called "You're Losing Me (From The Vault)," potentially alluding to a breakup. Collaborations with artists like rapper Ice Spice sparked further speculations and discussions.
+            
+            In essence, the Eras Tour transcended traditional concert experiences, becoming a sprawling, interactive reality show that fans eagerly participated in both offline and online. Swift's ability to maintain a close connection with her fanbase and her knack for leaving hidden clues and messages resulted in an ongoing cultural moment that blurred the lines between the Swiftie-verse and the rest of the pop culture landscape. As the tour continues, it keeps generating content, headlines, and discussions, solidifying its status as a significant event in pop music history.</p>
+        <p class="paragraph2">Taylor Swift's Eras Tour, launched on St. Patrick's Day this year, has evolved into a cultural phenomenon with fans falling into three categories: those who attended the epic event, those who immersed themselves in online videos and content, and those who couldn't escape the headlines and hype. The tour, spanning 52 stops and showcasing all ten of Swift's studio albums, is not merely a series of concerts but an ongoing, interactive reality show.
+
+            Swift's close relationship with her fans over the years, involving MySpace posts, Instagram comments, and hidden messages in CD liner notes, has fostered a devoted and enormous fan base eager to scrutinize every move the star makes, both on and off the stage. Each album cycle, Swift builds on her intricate Easter eggs and clues, incorporating color coding, numerology, and lyrical connections, leading fans on a personal search for deeper connections with the artist.
+            
+            The Eras Tour offers Swift's fans a physical space to coalesce and a tangible hold on the real world, becoming a central focus for the fanbase. With fans eager to uncover hidden messages and meaning behind Swift's actions, the tour generated unceasing buzz, with headlines ranging from Ticketmaster demand breaking records and leading to lawsuits and congressional hearings to speculations about her romantic life.</p>
+    </div>
+
+    <!-- Task 5: Image Gallery with Hover Effect and Transition -->
+    <div class="image-gallery">
+        <div class="thumbnail">
+            <img src="https://static01.nyt.com/images/2023/03/20/multimedia/18Taylor-Review-01-gqkp/18Taylor-Review-01-gqkp-superJumbo.jpg?quality=75&auto=webp" alt="Image 1">
+        </div>
+        <div class="thumbnail">
+            <img src="https://static01.nyt.com/images/2023/03/18/multimedia/18Taylor-Review-qjzw/18Taylor-Review-qjzw-superJumbo.jpg?quality=75&auto=webp" alt="Image 2">
+        </div>
+        <div class="thumbnail">
+            <img src="https://static01.nyt.com/images/2023/03/18/multimedia/18Taylor-Review-04-gqkp/18Taylor-Review-04-gqkp-superJumbo.jpg?quality=75&auto=webp" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>
